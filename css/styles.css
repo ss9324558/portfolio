@@ -1,0 +1,241 @@
+/* Custom styles */
+.cyber-noise {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.cyber-noise::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVGhD7cExAQAwDMCg+zfdm1gQ+JNkC5ZgCZZgCZZgCZZgCZZgCZZgCZZgCZZgCZZgCZZgCZZgCZZgCZZgCZZgCZZgCZZgCZZgCZYw7QJ8QAc0XQAAAABJRU5ErkJggg==');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.text-gradient-animation {
+    background: linear-gradient(90deg, #00f9ff, #ff00f9, #b300ff, #00f9ff);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 8s ease infinite;
+}
+
+.glow-effect {
+    box-shadow: 0 0 10px rgba(0, 249, 255, 0.5);
+}
+
+.glow-effect:hover {
+    box-shadow: 0 0 20px rgba(0, 249, 255, 0.8);
+}
+
+.hologram-effect {
+    position: relative;
+}
+
+.hologram-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 249, 255, 0.1) 0%, rgba(179, 0, 255, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.hologram-effect:hover::before {
+    opacity: 1;
+}
+
+.project-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.project-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-modal-content {
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    background-color: rgba(26, 26, 34, 0.95);
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(0, 249, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 249, 255, 0.2);
+    position: relative;
+}
+
+.project-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(255, 0, 249, 0.2);
+    border: 1px solid rgba(255, 0, 249, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.project-modal-close:hover {
+    background-color: rgba(255, 0, 249, 0.3);
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00f9ff;
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease;
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(0, 249, 255, 0.5);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9998;
+    transition: all 0.2s ease;
+}
+
+/* Terminal Styles */
+.terminal {
+    font-family: monospace;
+    background-color: rgba(18, 18, 26, 0.9);
+    border: 1px solid rgba(0, 255, 153, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 153, 0.2);
+}
+
+/* Scan Line */
+.scan-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #00ff99, transparent);
+    box-shadow: 0 0 10px #00ff99;
+    z-index: 999;
+    pointer-events: none;
+}
+
+/* Glitch Effect */
+.glitch-effect {
+    position: relative;
+}
+
+.glitch-effect::before, .glitch-effect::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.glitch-effect::before {
+    color: #0ff;
+    z-index: -1;
+    animation: glitch-anim 2s infinite linear alternate-reverse;
+}
+
+.glitch-effect::after {
+    color: #f0f;
+    z-index: -2;
+    animation: glitch-anim 1.5s infinite linear alternate-reverse;
+}
+
+.grid-pattern {
+    background-image: 
+        linear-gradient(rgba(0, 249, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 249, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+    opacity: 0.1;
+}
+
+/* Face recognition styles */
+.auth-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.auth-container video {
+    border-radius: 0.5rem;
+    border: 2px solid rgba(0, 249, 255, 0.3);
+    margin-bottom: 1rem;
+    background: #0a0a12;
+    display: none; /* Hidden until camera starts */
+}
+
+.auth-container .fa-fingerprint {
+    display: block; /* Show by default */
+}
+
+.camera-active video {
+    display: block;
+}
+
+.camera-active .fa-fingerprint {
+    display: none;
+}
+
+/* Add to your styles.css */
+#camera-container {
+    position: relative;
+    border: 2px solid rgba(0, 249, 255, 0.3);
+}
+
+#camera-feed {
+    transform: scaleX(-1); /* Mirror effect */
+    background: #0a0a12;
+}
+
+#scan-icon.hidden {
+    display: none;
+}
+
+.fa-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

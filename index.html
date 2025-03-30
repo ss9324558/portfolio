@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Suraj Singh | Innovating Digital Experiences & Crafting the Future of Web
+    </title>
+
+    <!-- Meta tags part -->
+    <meta
+      name="description"
+      content="Suraj Singh Bhadoria | Full-stack Developer, React Native Expert, and Innovator. Explore my portfolio showcasing cutting-edge web and mobile projects, AI-enhanced design, and interactive 3D experiences."
+    />
+    <meta
+      name="keywords"
+      content="Suraj Singh Bhadoria, Full-stack Developer, Web Developer Portfolio, React Native, JavaScript, HTML, CSS, Tailwind, Node.js, Express.js, MongoDB, AI Design, 3D Holograms, Cyberpunk Portfolio"
+    />
+    <meta name="author" content="Suraj Singh Bhadoria" />
+
+    <!-- Open Graph (OG) Tags for Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Suraj Singh Bhadoria | Developer Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Explore the portfolio of Suraj Singh Bhadoria, a talented web developer with expertise in React Native, full-stack development, and AI-driven design."
+    />
+    <meta
+      property="og:image"
+      content="https://media.licdn.com/dms/image/v2/D4D35AQEbYlUXN0h66g/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1708317736211?e=1743962400&v=beta&t=ZeBHRug3GSDXKoVZzyIwfzk0vVrPaZFyfIx_uHDf5Iw"
+    />
+    <!-- Add your portfolio image or logo -->
+    <meta property="og:url" content="YOUR_PORTFOLIO_URL" />
+    <!-- Add the URL of your portfolio -->
+
+    <!-- LinkedIn Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Suraj Singh Bhadoria | Developer Portfolio"
+    />
+
+    <!-- GitHub Meta Tags -->
+    <meta property="og:url" content="https://github.com/ss9324558" />
+    <meta
+      property="og:image"
+      content="https://avatars.githubusercontent.com/u/115810209?v=4"
+    />
+
+    <!-- Tailwind CSS with Cyberpunk Theme -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Satoshi"', "sans-serif"],
+              cyber: ['"Orbitron"', "sans-serif"],
+              futura: ['"Futura PT"', "sans-serif"],
+            },
+            colors: {
+              neon: {
+                cyan: "#00f9ff",
+                pink: "#ff00f9",
+                purple: "#b300ff",
+                blue: "#0066ff",
+                green: "#00ff99",
+              },
+              cyber: {
+                900: "#0a0a12",
+                800: "#12121a",
+                700: "#1a1a22",
+                600: "#22222a",
+              },
+            },
+            animation: {
+              "hologram-pulse": "hologramPulse 3s infinite alternate",
+              glitch: "glitch 2s infinite",
+              float: "float 6s ease-in-out infinite",
+              "neon-flicker": "neonFlicker 1.5s infinite alternate",
+              scan: "scan 3s linear infinite",
+            },
+          },
+        },
+        corePlugins: {
+          preflight: true,
+        },
+      };
+    </script>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&family=Futura+PT:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+
+    <!-- Three.js & Extra Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.min.js"></script>
+  </head>
+  <body
+    class="font-sans bg-cyber-900 text-gray-100 antialiased overflow-x-hidden cyber-noise"
+  >
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- AI Voice Assistant -->
+    <div id="ai-assistant" class="fixed bottom-6 right-6 z-50">
+      <button
+        id="ai-button"
+        class="w-16 h-16 rounded-full bg-neon-cyan/20 border border-neon-cyan flex items-center justify-center text-neon-cyan hover:bg-neon-cyan/30 transition-all duration-300 glow-effect"
+      >
+        <i class="fas fa-robot text-2xl"></i>
+      </button>
+      <div
+        id="ai-chat"
+        class="hidden absolute bottom-20 right-0 w-80 h-96 bg-cyber-800/90 backdrop-blur-md border border-neon-cyan/30 rounded-lg overflow-hidden shadow-xl"
+      >
+        <div
+          class="p-4 border-b border-neon-cyan/20 flex justify-between items-center"
+        >
+          <h3 class="font-cyber text-neon-cyan">NEO AI Assistant</h3>
+          <button id="close-ai" class="text-gray-400 hover:text-neon-pink">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div id="ai-messages" class="h-72 p-4 overflow-y-auto"></div>
+        <div class="p-4 border-t border-neon-cyan/20 flex">
+          <input
+            id="ai-input"
+            type="text"
+            placeholder="Ask about my work..."
+            class="flex-1 bg-cyber-700 border border-neon-cyan/30 rounded-l-lg px-4 py-2 focus:outline-none focus:border-neon-cyan"
+          />
+          <button
+            id="ai-send"
+            class="bg-neon-cyan text-cyber-900 px-4 py-2 rounded-r-lg font-medium"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terminal -->
+    <div
+      id="terminal"
+      class="fixed bottom-4 left-4 w-80 bg-cyber-800/90 border border-neon-green/30 rounded-lg overflow-hidden z-50 hidden terminal"
+    >
+      <div
+        class="p-2 border-b border-neon-green/20 flex justify-between items-center"
+      >
+        <h3 class="font-mono text-neon-green">SYSTEM TERMINAL</h3>
+        <button id="close-terminal" class="text-gray-400 hover:text-neon-pink">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div
+        id="terminal-output"
+        class="h-48 p-2 overflow-y-auto font-mono text-xs text-neon-green"
+      ></div>
+      <div class="p-2 border-t border-neon-green/20 flex">
+        <span class="text-neon-green mr-2">></span>
+        <input
+          id="terminal-input"
+          type="text"
+          class="flex-1 bg-transparent border-none focus:outline-none text-neon-green font-mono"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <!-- Scan Line -->
+    <div id="scan-line" class="scan-line" style="display: none"></div>
+
+    <!-- Holographic Project Viewer Modal -->
+    <div
+      id="hologram-modal"
+      class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden"
+    >
+      <div
+        class="relative w-full max-w-6xl h-[80vh] bg-cyber-800/80 border border-neon-cyan/30 rounded-xl overflow-hidden backdrop-blur-lg"
+      >
+        <button
+          id="close-hologram"
+          class="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-neon-pink/20 border border-neon-pink flex items-center justify-center text-neon-pink hover:bg-neon-pink/30 transition-all"
+        >
+          <i class="fas fa-times"></i>
+        </button>
+        <div id="hologram-container" class="w-full h-full"></div>
+      </div>
+    </div>
+
+    <!-- Biometric Authentication Modal -->
+
+    <!-- <div
+      id="bio-auth"
+      class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden"
+    >
+      <div
+        class="bg-cyber-800 p-8 rounded-xl border border-neon-blue/30 max-w-md text-center"
+      >
+        <div class="auth-container">
+          <div
+            class="w-24 h-24 rounded-full bg-neon-blue/10 border-2 border-neon-blue mx-auto mb-6 flex items-center justify-center"
+          >
+            <i
+              class="fas fa-fingerprint text-3xl text-neon-blue animate-pulse"
+            ></i>
+          </div>
+        </div>
+        <h3 class="text-xl font-cyber mb-4">FACE VERIFICATION REQUIRED</h3>
+        <p class="text-gray-400 mb-6">Look directly into your camera</p>
+        <button
+          id="auth-success"
+          class="px-6 py-2 bg-neon-blue text-cyber-900 rounded-lg mr-3"
+        >
+          Verify
+        </button>
+        <button
+          id="auth-cancel"
+          class="px-6 py-2 border border-neon-blue/50 text-neon-blue rounded-lg"
+        >
+          Cancel
+        </button>
+      </div>
+    </div> -->
+
+    <div
+      id="bio-auth"
+      class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center hidden"
+    >
+      <div
+        class="bg-cyber-800 p-8 rounded-xl border border-neon-blue/30 max-w-md text-center"
+      >
+        <div
+          id="camera-container"
+          class="w-full h-64 bg-black rounded-lg mb-4 overflow-hidden"
+        >
+          <video
+            id="camera-feed"
+            autoplay
+            playsinline
+            class="w-full h-full object-cover"
+          ></video>
+        </div>
+
+        <div class="flex justify-center mb-6">
+          <i
+            id="scan-icon"
+            class="fas fa-fingerprint text-4xl text-neon-blue animate-pulse"
+          ></i>
+        </div>
+
+        <h3 class="text-xl font-cyber mb-4">FACE VERIFICATION REQUIRED</h3>
+        <p class="text-gray-400 mb-6">Position your face in the frame</p>
+
+        <div class="flex justify-center space-x-4">
+          <button
+            id="auth-success"
+            class="px-6 py-2 bg-neon-blue text-cyber-900 rounded-lg"
+          >
+            Verify
+          </button>
+          <button
+            id="auth-cancel"
+            class="px-6 py-2 border border-neon-blue/50 text-neon-blue rounded-lg"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative z-10">
+      <!-- Navigation -->
+      <nav
+        class="fixed w-full z-50 backdrop-blur-md bg-dark-900/80 border-b border-dark-700"
+      >
+        <div
+          class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+        >
+          <a
+            href="#"
+            class="text-2xl font-display font-bold text-gradient-animation"
+            >SSB</a
+          >
+
+          <div class="hidden md:flex items-center space-x-8">
+            <div class="flex items-center space-x-4 ml-6">
+              <div class="flex items-center">
+                <span class="text-neon-green font-mono text-sm">BTC:</span>
+                <span
+                  id="btc-price"
+                  class="text-neon-green font-mono text-sm ml-1"
+                  >$--.--</span
+                >
+              </div>
+              <div class="flex items-center">
+                <span class="text-neon-purple font-mono text-sm">ETH:</span>
+                <span
+                  id="eth-price"
+                  class="text-neon-purple font-mono text-sm ml-1"
+                  >$--.--</span
+                >
+              </div>
+            </div>
+
+            <a
+              href="#home"
+              class="nav-link text-sm uppercase tracking-wider font-medium hover:text-neon-blue transition-all duration-300 relative group"
+            >
+              <span>Home</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+            <a
+              href="#about"
+              class="nav-link text-sm uppercase tracking-wider font-medium hover:text-neon-blue transition-all duration-300 relative group"
+            >
+              <span>About</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+            <a
+              href="#work"
+              class="nav-link text-sm uppercase tracking-wider font-medium hover:text-neon-blue transition-all duration-300 relative group"
+            >
+              <span>Work</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+            <a
+              href="#skills"
+              class="nav-link text-sm uppercase tracking-wider font-medium hover:text-neon-blue transition-all duration-300 relative group"
+            >
+              <span>Skills</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+            <a
+              href="#contact"
+              class="nav-link text-sm uppercase tracking-wider font-medium hover:text-neon-blue transition-all duration-300 relative group"
+            >
+              <span>Contact</span>
+              <span
+                class="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"
+              ></span>
+            </a>
+          </div>
+
+          <button
+            id="mobile-menu-button"
+            class="md:hidden text-gray-300 hover:text-neon-blue transition"
+          >
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden bg-dark-900/95 backdrop-blur-lg px-6 py-4 border-t border-dark-700"
+        >
+          <div class="flex flex-col space-y-4">
+            <a
+              href="#home"
+              class="nav-link text-sm uppercase tracking-wider font-medium hover:text-neon-blue transition"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-sm uppercase tracking-wider font-medium hover:text-neon-blue transition"
+              >About</a
+            >
+            <a
+              href="#work"
+              class="nav-link text-sm uppercase tracking-wider font-medium hover:text-neon-blue transition"
+              >Work</a
+            >
+            <a
+              href="#skills"
+              class="nav-link text-sm uppercase tracking-wider font-medium hover:text-neon-blue transition"
+              >Skills</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-sm uppercase tracking-wider font-medium hover:text-neon-blue transition"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section
+        id="home"
+        class="min-h-screen flex items-center pt-20 relative overflow-hidden"
+      >
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden z-0">
+          <div
+            class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-neon-blue/10 blur-3xl animate-pulse"
+          ></div>
+          <div
+            class="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-neon-pink/10 blur-3xl animate-pulse delay-300"
+          ></div>
+          <div
+            class="absolute top-1/3 right-1/3 w-96 h-96 rounded-full bg-neon-purple/10 blur-3xl animate-pulse delay-700"
+          ></div>
+        </div>
+
+        <div
+          class="max-w-7xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center relative z-10"
+        >
+          <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
+            <div class="text-neon-blue font-mono text-sm mb-4">
+              WELCOME TO MY DIGITAL REALM
+            </div>
+            <h1
+              class="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight glitch-effect"
+              data-text="Suraj Singh"
+            >
+              Suraj <span class="text-gradient-animation">Singh</span>
+            </h1>
+            <h2
+              class="text-2xl md:text-3xl font-medium mb-6 text-gray-400 glitch-effect"
+              data-text="I craft immersive experiences for the future web"
+            >
+              I craft
+              <span class="text-neon-blue">immersive experiences</span> for the
+              future web
+            </h2>
+            <p class="text-lg text-gray-400 mb-8 max-w-lg">
+              I'm a passionate web developer with 1+ years of experience and a
+              strong foundation in web development technologies. My goal is to
+              push the boundaries of the web, creating cutting-edge, responsive,
+              and visually engaging digital solutions. Whether it's through
+              front-end frameworks like React and Next.js or by enhancing
+              performance and security through meticulous coding practices, I
+              aim to craft seamless user experiences.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a
+                href="#work"
+                class="px-8 py-3.5 bg-gradient-to-r from-neon-blue to-neon-purple text-dark-900 font-medium rounded-full glow-effect transition-all duration-300 flex items-center group"
+              >
+                Explore Work
+                <i
+                  class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"
+                ></i>
+              </a>
+              <a
+                href="#contact"
+                class="px-8 py-3.5 border border-dark-700 hover:border-neon-blue/50 hover:bg-dark-800/50 text-white font-medium rounded-full transition-all duration-300 flex items-center group"
+              >
+                Contact Me
+                <i
+                  class="fas fa-envelope ml-2 group-hover:translate-x-1 transition-transform"
+                ></i>
+              </a>
+            </div>
+
+            <div class="mt-12 flex items-center space-x-6">
+              <a
+                href="https://github.com/ss9324558"
+                class="social-icon w-10 h-10 rounded-full border border-dark-700 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:border-neon-blue/50 transition-all duration-300"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/suraj-singh-bhadoria-687b73261/"
+                class="social-icon w-10 h-10 rounded-full border border-dark-700 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:border-neon-blue/50 transition-all duration-300"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <!-- <a
+                href="#"
+                class="social-icon w-10 h-10 rounded-full border border-dark-700 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:border-neon-blue/50 transition-all duration-300"
+              >
+                <i class="fab fa-dribbble"></i>
+              </a>
+              <a
+                href="#"
+                class="social-icon w-10 h-10 rounded-full border border-dark-700 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:border-neon-blue/50 transition-all duration-300"
+              >
+                <i class="fab fa-twitter"></i>
+              </a> -->
+            </div>
+          </div>
+
+          <div
+            class="md:w-1/2 flex justify-center relative"
+            data-aos="fade-left"
+          >
+            <!-- 3D Scene Container -->
+            <div
+              id="threejs-container"
+              class="w-full h-96 md:h-[500px] rounded-2xl overflow-hidden border border-neon-blue/30"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div
+          class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+        >
+          <div
+            class="w-6 h-10 border-2 border-neon-blue rounded-full flex justify-center"
+          >
+            <div
+              class="w-1 h-2 bg-neon-blue rounded-full mt-2 animate-scroll"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-20 relative overflow-hidden">
+        <!-- Background Grid -->
+        <div class="absolute inset-0 grid-pattern z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <div class="text-neon-blue font-mono text-sm mb-2">
+              GET TO KNOW ME
+            </div>
+            <h2
+              class="text-4xl font-display font-bold mb-4 glitch-effect"
+              data-text="About Me"
+            >
+              About Me
+            </h2>
+            <div
+              class="w-20 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto rounded-full"
+            ></div>
+          </div>
+
+          <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="lg:w-1/3 flex justify-center" data-aos="fade-right">
+              <div class="relative group max-w-xs hologram-effect">
+                <div
+                  class="absolute -inset-2 bg-gradient-to-r from-neon-blue to-neon-purple rounded-2xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500"
+                ></div>
+                <div
+                  class="relative overflow-hidden rounded-xl border border-neon-blue/30 bg-dark-800/50 backdrop-blur-sm"
+                >
+                  <img
+                    src="./assets/images/1704458302219.jpg"
+                    alt="Alex Carter"
+                    class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-transparent to-transparent flex items-end p-6"
+                  >
+                    <div>
+                      <h3 class="font-display font-bold text-xl mb-1">
+                        Suraj Singh
+                      </h3>
+                      <p class="text-neon-blue text-sm">Digital Visionary</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:w-2/3" data-aos="fade-left">
+              <h3
+                class="text-2xl font-display font-bold mb-6 glitch-effect"
+                data-text="Who I Am"
+              >
+                Who I Am
+              </h3>
+              <div class="space-y-4 text-gray-400">
+                <p>
+                  I am
+                  <span class="text-neon-blue">Suraj Singh,</span>
+                  a web developer with a deep passion for building innovative
+                  digital experiences. With hands-on experience in React,
+                  JavaScript, and other modern technologies, I specialize in
+                  creating user-centric web applications that prioritize both
+                  form and function. I have a keen eye for detail and believe in
+                  writing code that is not only effective but also optimized for
+                  performance and security.
+                </p>
+                <p>
+                  From responsive
+                  <span class="text-neon-blue">front-end designs</span> to
+                  <span class="text-neon-blue">back-end development</span>, I am
+                  comfortable working with both ends of the stack. I am
+                  constantly learning and growing in new technologies, ensuring
+                  that I stay on top of industry trends. Below are some of the
+                  technologies and tools I work with regularly.
+                </p>
+                <p>
+                  When I'm not coding, you'll find me experimenting with new
+                  frameworks, trying new ideas, exploring deep into ocean of
+                  coading.
+                </p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+                <div
+                  class="bg-dark-800/50 border border-dark-700 rounded-xl p-6 hover:border-neon-blue/50 transition-all duration-300"
+                  data-aos="zoom-in"
+                >
+                  <div class="flex items-start space-x-4">
+                    <div class="text-neon-blue text-xl mt-1">
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-display font-bold mb-1">Location</h4>
+                      <p class="text-gray-400">Maharashtra, IN</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-dark-800/50 border border-dark-700 rounded-xl p-6 hover:border-neon-blue/50 transition-all duration-300"
+                  data-aos="zoom-in"
+                  data-aos-delay="100"
+                >
+                  <div class="flex items-start space-x-4">
+                    <div class="text-neon-blue text-xl mt-1">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-display font-bold mb-1">Email</h4>
+                      <p class="text-gray-400">
+                        bhadoria.suraj.singh.07@gmail.com
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-dark-800/50 border border-dark-700 rounded-xl p-6 hover:border-neon-blue/50 transition-all duration-300"
+                  data-aos="zoom-in"
+                  data-aos-delay="200"
+                >
+                  <div class="flex items-start space-x-4">
+                    <div class="text-neon-blue text-xl mt-1">
+                      <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-display font-bold mb-1">Freelance</h4>
+                      <p class="text-gray-400">Available</p>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-dark-800/50 border border-dark-700 rounded-xl p-6 hover:border-neon-blue/50 transition-all duration-300"
+                  data-aos="zoom-in"
+                  data-aos-delay="300"
+                >
+                  <div class="flex items-start space-x-4">
+                    <div class="text-neon-blue text-xl mt-1">
+                      <i class="fas fa-code"></i>
+                    </div>
+                    <div>
+                      <h4 class="font-display font-bold mb-1">Experience</h4>
+                      <p class="text-gray-400">1+ Years</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Work Section -->
+      <section id="work" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <div class="text-neon-blue font-mono text-sm mb-2">
+              MY PORTFOLIO
+            </div>
+            <h2
+              class="text-4xl font-display font-bold mb-4 glitch-effect"
+              data-text="Ocean of Projects"
+            >
+              Ocean of Projects
+            </h2>
+            <div
+              class="w-20 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto rounded-full"
+            ></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="project-card group" data-aos="fade-up" data-project="1">
+              <div
+                class="relative overflow-hidden rounded-2xl h-80 border border-dark-700 hover:border-neon-blue/50 transition-all duration-500 hologram-effect"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-dark-900/30 to-dark-900/80 z-10"
+                ></div>
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                  alt="Project 1"
+                  class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div
+                  class="absolute inset-0 flex flex-col justify-end p-6 z-20"
+                >
+                  <div
+                    class="transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
+                  >
+                    <div class="text-neon-blue font-mono text-xs mb-2">
+                      WEB APPLICATION
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-2">
+                      E-commerce Platform
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                      A modern e-commerce solution with immersive product
+                      visualization
+                    </p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >React</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >Three.js</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >Node.js</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div
+              class="project-card group"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-project="2"
+            >
+              <div
+                class="relative overflow-hidden rounded-2xl h-80 border border-dark-700 hover:border-neon-blue/50 transition-all duration-500 hologram-effect"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-dark-900/30 to-dark-900/80 z-10"
+                ></div>
+                <img
+                  src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+                  alt="Project 2"
+                  class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div
+                  class="absolute inset-0 flex flex-col justify-end p-6 z-20"
+                >
+                  <div
+                    class="transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
+                  >
+                    <div class="text-neon-blue font-mono text-xs mb-2">
+                      WEB DESIGN
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-2">
+                      Portfolio Website
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                      Minimalist portfolio with smooth animations and
+                      interactions
+                    </p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >HTML/CSS</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >JavaScript</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >GSAP</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div
+              class="project-card group"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-project="3"
+            >
+              <div
+                class="relative overflow-hidden rounded-2xl h-80 border border-dark-700 hover:border-neon-blue/50 transition-all duration-500 hologram-effect"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-dark-900/30 to-dark-900/80 z-10"
+                ></div>
+                <img
+                  src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                  alt="Project 3"
+                  class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div
+                  class="absolute inset-0 flex flex-col justify-end p-6 z-20"
+                >
+                  <div
+                    class="transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
+                  >
+                    <div class="text-neon-blue font-mono text-xs mb-2">
+                      UI/UX DESIGN
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-2">
+                      Mobile App Design
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                      Fitness tracking app with intuitive user interface
+                    </p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >Figma</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >Prototyping</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >UI Design</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card group" data-aos="fade-up" data-project="4">
+              <div
+                class="relative overflow-hidden rounded-2xl h-80 border border-dark-700 hover:border-neon-blue/50 transition-all duration-500 hologram-effect"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-dark-900/30 to-dark-900/80 z-10"
+                ></div>
+                <img
+                  src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80"
+                  alt="Project 4"
+                  class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div
+                  class="absolute inset-0 flex flex-col justify-end p-6 z-20"
+                >
+                  <div
+                    class="transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
+                  >
+                    <div class="text-neon-blue font-mono text-xs mb-2">
+                      DASHBOARD
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-2">
+                      Analytics Dashboard
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                      Real-time data visualization with interactive charts
+                    </p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >Vue.js</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >Tailwind</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >D3.js</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div
+              class="project-card group"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-project="5"
+            >
+              <div
+                class="relative overflow-hidden rounded-2xl h-80 border border-dark-700 hover:border-neon-blue/50 transition-all duration-500 hologram-effect"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-dark-900/30 to-dark-900/80 z-10"
+                ></div>
+                <img
+                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                  alt="Project 5"
+                  class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div
+                  class="absolute inset-0 flex flex-col justify-end p-6 z-20"
+                >
+                  <div
+                    class="transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
+                  >
+                    <div class="text-neon-blue font-mono text-xs mb-2">
+                      WEB APPLICATION
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-2">
+                      Collaboration Tool
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                      Team productivity platform with real-time collaboration
+                    </p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >React</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >Firebase</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >WebRTC</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div
+              class="project-card group"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-project="6"
+            >
+              <div
+                class="relative overflow-hidden rounded-2xl h-80 border border-dark-700 hover:border-neon-blue/50 transition-all duration-500 hologram-effect"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-to-b from-dark-900/30 to-dark-900/80 z-10"
+                ></div>
+                <img
+                  src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                  alt="Project 6"
+                  class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div
+                  class="absolute inset-0 flex flex-col justify-end p-6 z-20"
+                >
+                  <div
+                    class="transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500"
+                  >
+                    <div class="text-neon-blue font-mono text-xs mb-2">
+                      BRAND IDENTITY
+                    </div>
+                    <h3 class="text-2xl font-display font-bold mb-2">
+                      Tech Startup Branding
+                    </h3>
+                    <p class="text-gray-400 text-sm mb-4">
+                      Complete visual identity for AI technology company
+                    </p>
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >Illustrator</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >Photoshop</span
+                    >
+                    <span
+                      class="text-xs px-3 py-1 bg-dark-800 rounded-full text-neon-blue border border-dark-700"
+                      >Branding</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-16" data-aos="fade-up">
+            <a
+              href="#"
+              class="inline-flex items-center px-8 py-3.5 border border-dark-700 hover:border-neon-blue/50 rounded-full font-medium transition-all duration-300 group"
+            >
+              View All Projects
+              <i
+                class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"
+              ></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section
+        id="skills"
+        class="py-20 bg-dark-800/30 relative overflow-hidden"
+      >
+        <!-- Floating Elements -->
+        <div
+          class="absolute -top-20 -left-20 w-40 h-40 rounded-full bg-neon-blue/10 blur-xl animate-float"
+        ></div>
+        <div
+          class="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-neon-pink/10 blur-xl animate-float-reverse"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <div class="text-neon-blue font-mono text-sm mb-2">
+              Skills & Technologies
+            </div>
+            <h2
+              class="text-4xl font-display font-bold mb-4 glitch-effect"
+              data-text="My Toolbelt for Building Exceptional Digital Solutions"
+            >
+              My Toolbelt for Building Exceptional Digital Solutions
+            </h2>
+            <div
+              class="w-20 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto rounded-full"
+            ></div>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Skill 1 -->
+            <div
+              class="skill-card p-6 rounded-xl bg-dark-800/50 border border-dark-700 hover:border-neon-blue/50 transition-all duration-300"
+              data-aos="zoom-in"
+            >
+              <div class="text-neon-blue mb-4 text-4xl">
+                <i class="fab fa-html5"></i>
+              </div>
+              <h3 class="text-xl font-display font-bold mb-2">HTML5</h3>
+              <p class="text-gray-400 text-sm">
+                Semantic markup, accessibility
+              </p>
+              <div class="mt-4 h-1 w-full bg-dark-700 rounded-full">
+                <div
+                  class="h-1 bg-neon-blue rounded-full"
+                  style="width: 95%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 2 -->
+            <div
+              class="skill-card p-6 rounded-xl bg-dark-800/50 border border-dark-700 hover:border-neon-blue/50 transition-all duration-300"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <div class="text-neon-blue mb-4 text-4xl">
+                <i class="fab fa-css3-alt"></i>
+              </div>
+              <h3 class="text-xl font-display font-bold mb-2">
+                CSS3 | Tailwind CSS
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Animations, Transitions, Responsive Layouts, Utility-First
+                Design
+              </p>
+              <div class="mt-4 h-1 w-full bg-dark-700 rounded-full">
+                <div
+                  class="h-1 bg-neon-blue rounded-full"
+                  style="width: 90%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 3 -->
+            <div
+              class="skill-card p-6 rounded-xl bg-dark-800/50 border border-dark-700 hover:border-neon-blue/50 transition-all duration-300"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <div class="text-neon-blue mb-4 text-4xl">
+                <i class="fab fa-js"></i>
+              </div>
+              <h3 class="text-xl font-display font-bold mb-2">
+                JavaScript | TypeScript
+              </h3>
+              <p class="text-gray-400 text-sm">ES6+, modern frameworks</p>
+              <div class="mt-4 h-1 w-full bg-dark-700 rounded-full">
+                <div
+                  class="h-1 bg-neon-blue rounded-full"
+                  style="width: 85%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 4 -->
+            <div
+              class="skill-card p-6 rounded-xl bg-dark-800/50 border border-dark-700 hover:border-neon-blue/50 transition-all duration-300"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <div class="text-neon-blue mb-4 text-4xl">
+                <i class="fab fa-react"></i>
+              </div>
+              <h3 class="text-xl font-display font-bold mb-2">
+                React | React Native
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Hooks, Context API, Component Architecture, Performance
+                Optimization
+              </p>
+              <div class="mt-4 h-1 w-full bg-dark-700 rounded-full">
+                <div
+                  class="h-1 bg-neon-blue rounded-full"
+                  style="width: 80%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 5 -->
+            <div
+              class="skill-card p-6 rounded-xl bg-dark-800/50 border border-dark-700 hover:border-neon-blue/50 transition-all duration-300"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <div class="text-neon-blue mb-4 text-4xl">
+                <i class="fab fa-node-js"></i>
+              </div>
+              <h3 class="text-xl font-display font-bold mb-2">Node.js</h3>
+              <p class="text-gray-400 text-sm">REST APIs, authentication</p>
+              <div class="mt-4 h-1 w-full bg-dark-700 rounded-full">
+                <div
+                  class="h-1 bg-neon-blue rounded-full"
+                  style="width: 70%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 6 -->
+            <div
+              class="skill-card p-6 rounded-xl bg-dark-800/50 border border-dark-700 hover:border-neon-blue/50 transition-all duration-300"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+            >
+              <div class="text-neon-blue mb-4 text-4xl">
+                <i class="fab fa-node-js"></i>
+              </div>
+              <h3 class="text-xl font-display font-bold mb-2">Express.js</h3>
+              <p class="text-gray-400 text-sm">
+                REST APIs, Authentication, Middleware, Error Handling
+              </p>
+              <div class="mt-4 h-1 w-full bg-dark-700 rounded-full">
+                <div
+                  class="h-1 bg-neon-blue rounded-full"
+                  style="width: 70%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 7 -->
+            <div
+              class="skill-card p-6 rounded-xl bg-dark-800/50 border border-dark-700 hover:border-neon-blue/50 transition-all duration-300"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            >
+              <div class="text-neon-blue mb-4 text-4xl">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3 class="text-xl font-display font-bold mb-2">
+                MongoDB | MySQL
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Schema Design, Aggregation, Joins, Query Optimization
+              </p>
+              <div class="mt-4 h-1 w-full bg-dark-700 rounded-full">
+                <div
+                  class="h-1 bg-neon-blue rounded-full"
+                  style="width: 65%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 8 -->
+            <div
+              class="skill-card p-6 rounded-xl bg-dark-800/50 border border-dark-700 hover:border-neon-blue/50 transition-all duration-300"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <div class="text-neon-blue mb-4 text-4xl">
+                <i class="fas fa-paint-brush"></i>
+              </div>
+              <h3 class="text-xl font-display font-bold mb-2">Java | Python</h3>
+              <p class="text-gray-400 text-sm">
+                Object-Oriented Programming, Scripting, Backend Development
+              </p>
+              <div class="mt-4 h-1 w-full bg-dark-700 rounded-full">
+                <div
+                  class="h-1 bg-neon-blue rounded-full"
+                  style="width: 85%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <div class="text-neon-blue font-mono text-sm mb-2">
+              LET'S CREATE SOMETHING AMAZING
+            </div>
+            <h2
+              class="text-4xl font-display font-bold mb-4 glitch-effect"
+              data-text="Reach Out & Let's Collaborate"
+            >
+              Reach Out & Let's Collaborate
+            </h2>
+            <div
+              class="w-20 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto rounded-full"
+            ></div>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-12">
+            <div class="lg:w-1/2" data-aos="fade-right">
+              <h3 class="text-2xl font-display font-bold mb-6">
+                Contact Information
+              </h3>
+              <p class="text-gray-400 mb-8">
+                Got an exciting project in mind or just want to chat about the
+                future of web development? I'm always up for innovative ideas
+                and collaborations. Whether it’s a potential partnership,
+                freelance work, or just a tech talk, don’t hesitate to reach
+                out. Let’s build something amazing together!
+              </p>
+
+              <div class="space-y-6">
+                <div
+                  class="flex items-start bg-dark-800/50 border border-dark-700 rounded-xl p-6 hover:border-neon-blue/50 transition-all duration-300"
+                >
+                  <div class="text-neon-blue text-xl mt-1 mr-4">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-display font-bold text-lg mb-1">Email</h4>
+                    <p class="text-gray-400">
+                      bhadoria.suraj.singh.07@gmail.com
+                    </p>
+                    <a
+                      href="mailto:bhadoria.suraj.singh.07@gmail.com"
+                      class="text-neon-blue text-sm mt-2 inline-block hover:underline"
+                      >Send Message</a
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-start bg-dark-800/50 border border-dark-700 rounded-xl p-6 hover:border-neon-blue/50 transition-all duration-300"
+                >
+                  <div class="text-neon-blue text-xl mt-1 mr-4">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-display font-bold text-lg mb-1">Phone</h4>
+                    <p class="text-gray-400">+91 (820) 849-8488</p>
+                    <a
+                      href="tel:+918208498488"
+                      class="text-neon-blue text-sm mt-2 inline-block hover:underline"
+                      >Call Now</a
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="flex items-start bg-dark-800/50 border border-dark-700 rounded-xl p-6 hover:border-neon-blue/50 transition-all duration-300"
+                >
+                  <div class="text-neon-blue text-xl mt-1 mr-4">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-display font-bold text-lg mb-1">
+                      Location
+                    </h4>
+                    <p class="text-gray-400">Maharashtra, India</p>
+                    <a
+                      href="https://maps.app.goo.gl/5RsoCc4cruLWzaxX8"
+                      class="text-neon-blue text-sm mt-2 inline-block hover:underline"
+                      >View on Map</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-12">
+                <h4 class="font-display font-bold text-lg mb-4">Follow Me</h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="https://github.com/ss9324558"
+                    class="social-icon w-12 h-12 rounded-full border border-dark-700 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:border-neon-blue/50 transition-all duration-300"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/suraj-singh-bhadoria-687b73261/"
+                    class="social-icon w-12 h-12 rounded-full border border-dark-700 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:border-neon-blue/50 transition-all duration-300"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <!-- <a
+                    href="#"
+                    class="social-icon w-12 h-12 rounded-full border border-dark-700 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:border-neon-blue/50 transition-all duration-300"
+                  >
+                    <i class="fab fa-dribbble"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="social-icon w-12 h-12 rounded-full border border-dark-700 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:border-neon-blue/50 transition-all duration-300"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:w-1/2" data-aos="fade-left">
+              <form id="contact-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="name" class="block text-gray-400 mb-2"
+                      >Your Name</label
+                    >
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-blue focus:border-transparent transition"
+                    />
+                  </div>
+                  <div>
+                    <label for="email" class="block text-gray-400 mb-2"
+                      >Your Email</label
+                    >
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-blue focus:border-transparent transition"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <div>
+                    <label for="subject" class="block text-gray-400 mb-2"
+                      >Subject</label
+                    >
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      class="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-blue focus:border-transparent transition"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="message" class="block text-gray-400 mb-2"
+                    >Your Message</label
+                  >
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    class="w-full px-4 py-3 bg-dark-800 border border-dark-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-blue focus:border-transparent transition"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="px-8 py-3.5 bg-gradient-to-r from-neon-blue to-neon-purple text-dark-900 font-medium rounded-full glow-effect transition-all duration-300 flex items-center group"
+                >
+                  Send Message
+                  <i
+                    class="fas fa-paper-plane ml-2 group-hover:translate-x-1 transition-transform"
+                  ></i>
+                </button>
+              </form>
+
+              <div
+                id="form-success"
+                class="hidden mt-6 p-4 bg-neon-green/10 border border-neon-green/30 rounded-lg text-neon-green"
+              >
+                <i class="fas fa-check-circle mr-2"></i> Your message has been
+                sent successfully!
+              </div>
+
+              <div
+                id="form-error"
+                class="hidden mt-6 p-4 bg-neon-pink/10 border border-neon-pink/30 rounded-lg text-neon-pink"
+              >
+                <i class="fas fa-exclamation-circle mr-2"></i> There was an
+                error sending your message. Please try again.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-cyber-800 border-t border-cyber-700 py-8 relative z-10">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <a
+              href="#"
+              class="text-2xl font-display font-bold text-gradient-animation"
+              >SSB.</a
+            >
+            <p class="text-gray-400 mt-2 text-sm">
+              © 2023 Suraj Singh. All systems part of my world.
+            </p>
+          </div>
+
+          <div class="flex space-x-6">
+            <a
+              href="#home"
+              class="text-gray-400 hover:text-neon-blue transition"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-gray-400 hover:text-neon-blue transition"
+              >About</a
+            >
+            <a
+              href="#work"
+              class="text-gray-400 hover:text-neon-blue transition"
+              >Work</a
+            >
+            <a
+              href="#skills"
+              class="text-gray-400 hover:text-neon-blue transition"
+              >Skills</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-400 hover:text-neon-blue transition"
+              >Contact</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="mt-8 pt-8 border-t border-cyber-700 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-500 text-sm mb-4 md:mb-0">
+            Designed & developed with
+            <i class="fas fa-heart text-neon-pink mx-1"></i> in my digital world
+          </p>
+
+          <div class="flex space-x-4">
+            <a
+              href="https://github.com/ss9324558"
+              class="text-gray-500 hover:text-neon-blue transition"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/suraj-singh-bhadoria-687b73261/"
+              class="text-gray-500 hover:text-neon-blue transition"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <!-- <a href="#" class="text-gray-500 hover:text-neon-blue transition">
+              <i class="fab fa-dribbble"></i>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-neon-blue transition">
+              <i class="fab fa-twitter"></i>
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/threejs.js"></script>
+    <script src="js/matrix-rain.js"></script>
+    <script type="module" src="js/face-recognition.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
